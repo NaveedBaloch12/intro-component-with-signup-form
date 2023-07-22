@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Intro component with sign up form</title>
+
+  <style>
+    /* ====================================================================== */
+    /* ====================================================================== */
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    :root {
+      /* ### Primary */
+      --Red: hsl(0, 100%, 74%);
+      --Green: hsl(154, 59%, 51%);
+
+      /* ### Accent */
+      --Blue: hsl(248, 32%, 49%);
+
+      /* ### Neutral */
+      --Dark_Blue: hsl(249, 10%, 26%);
+      --Grayish_Blue: hsl(246, 25%, 77%);
+
+
+      --box_radius: 8px;
+      --box_padding: 1rem;
+      --box_margin: 1rem;
+      --box_shadow: 0px 5px 0px rgba(0, 0, 0, 0.207);
+
+      --input_radius: 4px;
+      --input_padding: .7rem;
+      --input_margin: .5rem .1rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins';
+    }
+
+    /* ====================================================================== */
+    /* ----------------------------- Mobile View ---------------------------- */
+    /* ====================================================================== */
+
+    body {
+      background-color: var(--Red);
+      background-image: url(./images/bg-intro-mobile.png);
+    }
+
+    section {
+      width: 90%;
+      margin-inline: auto;
+      margin-block: 4rem;
+    }
+
+    /* ================================ Section 1 =============================== */
+
+    .section_1 {
+      color: white;
+      text-align: center;
+      Font-size: 16px;
+    }
+
+    header {
+      margin-block: 1rem;
+      font-size: clamp(1.6rem, 2.8vw, 3rem);
+      font-weight: 700;
+    }
+
+
+    /* ================================ Section 2 =============================== */
+
+    .pricing_subscription {
+      padding: var(--box_padding);
+      margin-block: var(--box_margin);
+      background-color: var(--Blue);
+      border-radius: var(--box_radius);
+      color: white;
+      box-shadow: var(--box_shadow);
+      text-align: center;
+    }
+
+    .pricing_subscription span {
+      font-weight: 500;
+    }
+
+    form {
+      background-color: white;
+      padding: var(--box_padding);
+      border-radius: var(--box_radius);
+      margin-block: var(--box_margin);
+    }
+
+    input,
+    button {
+      padding: var(--input_padding);
+      width: 100%;
+      margin-block: var(--input_margin);
+      border-radius: var(--input_radius);
+    }
+
+    .invilid {
+      display: none;
+      color: var(--Red);
+      margin-bottom: .5rem;
+      font-size: .8rem;
+      text-align: right;
+
+    }
+
+    button {
+      color: white;
+      background-color: var(--Green);
+      border: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .terms_and_services {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.554);
+      text-align: center;
+    }
+
+    .terms_and_services a {
+      color: var(--Red);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+
+    /* ====================================================================== */
+    /* ----------------------------- Desktop View ---------------------------- */
+    /* ====================================================================== */
+
+    @media (min-width: 41rem) {
+      body {
+        background-image: url(./images/bg-intro-desktop.png);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .main_contanier {
+        display: flex;
+        width: min(70rem, 88%);
+        align-items: center;
+      }
+
+      .section_1 {
+        margin-inline: 1rem 4rem;
+        text-align: left;
+      }
+
+      form,
+      .pricing_subscription {
+        max-width: 90%;
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main_contanier">
+    <section class="section_1">
+      <header>
+        Learn to code by watching others
+      </header>
+
+      <p class="decs_para ">See how experienced developers solve problems in real-rime. Watching scripted
+        tutorials
+        id
+        great, but understanding the developers think is invalueable.</p>
+    </section>
+
+    <section class="section_2">
+      <div class="pricing_subscription ">
+        <span>Try it free 7 days</span> then $20/mo. thereafter
+      </div>
+
+      <form action="backend.php" method="post" id="input_form">
+        <input type="text" name="first_name" id="first_name" placeholder="First Name">
+
+        <div class="invilid">First Name cannot be empty</div>
+
+        <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+
+        <div class="invilid">Last Name cannot be empty</div>
+
+
+        <input type="email" name="email" id="email" placeholder="Email Address">
+
+        <div class="invilid">Looks this is not an email</div>
+
+        <input type="password" name="password" id="password" placeholder="Password">
+
+        <div class="invilid">Password cannot be empty</div>
+
+
+        <button id="button" type="submit">claim your free trial</button>
+        <div class="terms_and_services">
+          By clicking the button, you are agreeing to our <a href="#">Terms and Services</a>
+      </form>
+
+    </section>
+  </div>
+
+
+  <footer>
+    <p class="attribution">
+      Coded by <a href="https://github.com/NaveedBaloch12">Naveed Hassan</a>.
+    </p>
+  </footer>
+</body>
+
+<script>
+
+  function toggleInvalidMessage(inputElement, invalidMessageElement, isValid) {
+    if (isValid) {
+      invalidMessageElement.style.display = "none";
+      inputElement.style.border = "1px solid #ccc";
+    } else {
+      invalidMessageElement.style.display = "block";
+      inputElement.style.border = "1px solid red";
+    }
+  }
+
+  // Function to check if an input field is empty
+  function isInputEmpty(inputElement) {
+    return inputElement.value.trim() === "";
+  }
+
+  // Function to check if an email address is valid
+  function isEmailValid(email) {
+    // You can implement your own email validation logic here
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Event listener for form submission
+  document.getElementById("input_form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Validate the inputs before submitting the form
+    const firstNameInput = document.getElementById("first_name");
+    const lastNameInput = document.getElementById("last_name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    const isFirstNameValid = !isInputEmpty(firstNameInput);
+    const isLastNameValid = !isInputEmpty(lastNameInput);
+    const isEmailValidValue = isEmailValid(emailInput.value);
+    const isPasswordValid = !isInputEmpty(passwordInput);
+
+    // Update the styles and display invalid messages if necessary
+    toggleInvalidMessage(firstNameInput, firstNameInput.nextElementSibling, isFirstNameValid);
+    toggleInvalidMessage(lastNameInput, lastNameInput.nextElementSibling, isLastNameValid);
+    toggleInvalidMessage(emailInput, emailInput.nextElementSibling, isEmailValidValue);
+    toggleInvalidMessage(passwordInput, passwordInput.nextElementSibling, isPasswordValid);
+
+    // If all fields are valid, you can proceed with form submission
+    if (isFirstNameValid && isLastNameValid && isEmailValidValue && isPasswordValid) {
+      // Uncomment the line below to submit the form programmatically
+      // event.target.submit();
+      console.log("Form submitted successfully!");
+    } else {
+      console.log("Form submission failed. Please check your inputs.");
+    }
+  });
+
+  // Event listener for input changes to remove the "invalid" style when the user starts typing
+  const inputFields = document.querySelectorAll("#input_form input");
+  inputFields.forEach((input) => {
+    input.addEventListener("input", function () {
+      input.style.border = "1px solid #ccc";
+      input.nextElementSibling.style.display = "none";
+    });
+  });
+
+</script>
+
+</html>
